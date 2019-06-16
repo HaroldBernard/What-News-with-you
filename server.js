@@ -11,7 +11,7 @@ var logger = require("morgan")
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -38,7 +38,7 @@ require("./routes/saved")(app);
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/news", { useNewUrlParser: true });
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news";
 
 mongoose.connect(MONGODB_URI);
 // Start the server
