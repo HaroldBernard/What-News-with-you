@@ -38,7 +38,7 @@ require("./routes/saved")(app);
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/news", { useNewUrlParser: true });
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 // Start the server
