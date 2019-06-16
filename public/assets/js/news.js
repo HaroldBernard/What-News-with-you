@@ -7,7 +7,7 @@ $(document).on("click", "#scrapeButton", function () {
         url: "/scrape",
     }).then(function (data) {
         console.log(data)
-        setTimeout(function () { window.location = "/" }, 1000)
+        setTimeout(function () { window.location = "/" }, 1500)
     })
 });
 
@@ -15,41 +15,25 @@ $(document).on("click", "#scrapeButton", function () {
 $(document).on("click", "#saveArticle", function () {
     console.log($(this).attr("data-id"))
 
-    var thisId = $(this).attr("data-id")
+    let thisId = $(this).attr("data-id")
 
     $.ajax({
         method: "POST",
         url: "/articleSaver/" + thisId,
-        data: {
-            // Values taken from the article
-            headline: $(".headline").val(),
-            title: $(".title").val(),
-            summary: $(".summary").val(),
-            link: $(".link").val(),
-            image: $(".imageURL").val()
-        }
     }).done(function () {
         windows.location = "/saved"
-        console.log(date)
     });
 })
+
 $(document).on("click", "#deleteArticle", function () {
     console.log($(this).attr("data-id"))
 
-    var thisId = $(this).attr("data-id")
+    let thisId = $(this).attr("data-id")
 
     $.ajax({
         method: "DELETE",
         url: "/articleSaver/" + thisId,
-        data: {
-            // Values taken from the article
-            headline: $(".headline").val(),
-            title: $(".title").val(),
-            summary: $(".summary").val(),
-            link: $(".link").val(),
-            image: $(".imageURL").val()
-        }
-    }).done(function () {
+    }).then(function (data) {
         windows.location = "/saved"
         location.reload()
         console.log(date)
@@ -58,18 +42,9 @@ $(document).on("click", "#deleteArticle", function () {
 
 // Note and its features are built and note modal pops up
 $(document).on("click", "#saveNote", function () {
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-        var thisId = $(this).attr("data-id");
-        $.ajax({
-            method: "GET",
-            url: "/articles/" + thisId
-        })
-    })
-    // Empty the notes from the note section
     $("#notes").empty();
     // Save the id from the #saveNote tag
-    var thisId = $(this).attr("data-id");
+    let thisId = $(this).attr("data-id");
 
     // Now make an ajax call for the Article
     $.ajax({
@@ -93,8 +68,13 @@ $(document).on("click", "#saveNote", function () {
                 // Place the body of the note in the body textarea
                 $("#bodyinput").val(data.note.body);
             }
+        })
+        .then(function () {
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
         });
-});
+})
 
 // note is saved into database
 $(document).on("click", "#savenote", function () {
