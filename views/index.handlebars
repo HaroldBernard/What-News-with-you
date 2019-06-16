@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Whats "News" With You</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light pb-0 pt-0">
+  <a class="navbar-brand" href="/">Whats "News" With You</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,22 +27,20 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <img class="bg-light" src="/assets/img/balls.jpg" height="60">
     </form>
   </div>
 </nav>
 <div class="jumbotron">
   <h1 class="">Sports News</h1>
-  <button class="storyButton" id="scrapeButton">Update News</button>
-  <a href="/saved"><button class="storyButton" id="findSavedButton">View Saved Articles</button></a>
+  <button class="storyButton bg-light" id="scrapeButton">Update News</button>
+  <a href="/saved"><button class="storyButton bg-light" id="findSavedButton">View Saved Articles</button></a>
 
 </div>
 <div class="row">
   <ul>
     {{#each dbArticle}}
-    {{!-- {{#unless saved}} --}}
-    <figure class="storyPanel clearfix">
+    <figure class="storyPanel clearfix bg-light">
       <h5 class="storyHeadline">{{headline}}</h5>
       <a>
         <div class="imgBox">
@@ -52,16 +50,15 @@
       <button class="storyButton" id="saveArticle" data-id="{{_id}}">Save Article</button>
       <button class="storyButton" id="saveNote" data-id="{{_id}}" data-toggle="modal" data-target="#exampleModal">Add
         Note</button>
-      <button class="storyButton" id="viewNote" data-id="{{_id}}" data-toggle="modal" data-target="#exampleModal">View
-        Note</button>
+        <br>
       <div class="float">
         <a href="{{link}}" class="storyLink" target="_blank">
           <h3 class="storyByline">{{title}}</h3>
         </a>
+        <br>
         <h5 class="storySummary">{{summary}}</h5>
       </div>
     </figure>
-    {{!-- {{/unless}} --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">

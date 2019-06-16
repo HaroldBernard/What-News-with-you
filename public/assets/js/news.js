@@ -34,12 +34,7 @@ $(document).on("click", "#saveArticle", function () {
     });
 })
 
-$(document).on("click", "#viewNote", function () {
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
-})
-// Note is saved and note modal pops up
+// Note and its features are built and note modal pops up
 $(document).on("click", "#saveNote", function () {
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
@@ -50,7 +45,7 @@ $(document).on("click", "#saveNote", function () {
         })
     })
     // Empty the notes from the note section
-    // $("#notes").empty();
+    $("#notes").empty();
     // Save the id from the #saveNote tag
     var thisId = $(this).attr("data-id");
 
@@ -73,15 +68,13 @@ $(document).on("click", "#saveNote", function () {
 
             // If there's a note in the article
             if (data.note) {
-                // Place the title of the note in the title input
-                $("#titleinput").val(data.note.title);
                 // Place the body of the note in the body textarea
                 $("#bodyinput").val(data.note.body);
             }
         });
 });
 
-// When you click the savenote button
+// note is saved into database
 $(document).on("click", "#savenote", function () {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
@@ -104,10 +97,11 @@ $(document).on("click", "#savenote", function () {
             // Empty the notes section
             $("#notes").empty();
             $("#titleinput").val("");
-            $("#bodyinput").val("");
+            // $("#bodyinput").val("");
         });
 });
 
+// note is deleted from database
 $(document).on("click", "#deletenote", function () {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");

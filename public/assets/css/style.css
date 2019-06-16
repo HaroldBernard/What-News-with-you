@@ -7,18 +7,21 @@ figure {
     margin: 0 0 1rem;
     padding: 12px;
     position: relative;
-    border: solid
+    border: solid;
+    /* background-color: honeydew */
 }
 #saveNote {
-    border-radius: 0;
+    border-width: medium;
     padding: 3px;
     padding-right: 5px;
-    /* float: right;    */
+    width: 132px;
+    float: right;  
 }
 #saveArticle {
-    border-radius: 0;
+    border-width: medium;
     padding: 3px;
     padding-right: 5px;
+    width: 132px
 }
 #viewNote {
     border-radius: 0;
@@ -30,8 +33,21 @@ figure {
     background-image: url(../img/Sports-PNG-Image.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain
+    background-size: contain;
+    background-color: crimson
 }
 #bodyinput {
     float: left;
+}
+body, .storyButton {
+    background-color: crimson
+}
+
+h3 {
+    color: black;
+    text-decoration: underline
+}
+img {
+    padding: 0px;
+    margin: 0px;
 }
