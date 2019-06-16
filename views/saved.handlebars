@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Whats "News" With You</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Latest <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">NFL <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">NBA <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Latest <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">NHL <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">College <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="jumbotron">
+    <h1 class="">Saved Sports News</h1>
+    <button class="storyButton" id="scrapeButton">Update News</button>
+    <a href="/"><button class="storyButton" id="findSavedButton">Home Page</button></a>
+</div>
+<div class="row">
+    <ul>
+        {{#each dbArticle}}
+        {{!-- {{#unless saved}} --}}
+        <figure class="storyPanel clearfix">
+            <h5 class="storyHeadline">{{headline}}</h5>
+            <a>
+                <div class="imgBox">
+                    <img src="{{imageURL}}" class="storyImg" height="150">
+                </div>
+            </a>
+            <button class="storyButton" id="saveArticle" data-id="{{_id}}">Save Article</button>
+            <button class="storyButton" id="saveNote" data-id="{{_id}}" data-toggle="modal"
+                data-target="#exampleModal">Add Note</button>
+            <div class="float">
+                <a href="{{link}}" class="storyLink" target="_blank">
+                    <h3 class="storyByline">{{title}}</h3>
+                </a>
+                <h5 class="storySummary">{{summary}}</h5>
+            </div>
+        </figure>
+        {{!-- {{/unless}} --}}
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="notes">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="saveThisNote btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </ul>
+</div>

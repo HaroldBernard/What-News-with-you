@@ -1,0 +1,33 @@
+ul {
+    display: flex;
+    overflow: scroll;
+    padding-left: 14px;
+}
+figure {
+    margin: 0 0 1rem;
+    padding: 12px;
+    position: relative;
+    border: solid
+}
+#saveNote {
+    border-radius: 0;
+    padding: 3px;
+    padding-right: 5px;
+    /* float: right;    */
+}
+#saveArticle {
+    border-radius: 0;
+    padding: 3px;
+    padding-right: 5px;
+}
+#viewNote {
+    border-radius: 0;
+    padding: 3px;
+    padding-right: 4px;
+}
+.jumbotron {
+    margin: 0px
+}
+#bodyinput {
+    float: left;
+}
