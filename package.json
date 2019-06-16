@@ -2,9 +2,10 @@
   "name": "what-news-with-you",
   "version": "1.0.0",
   "description": "Web app that lets users view and leave comments on the latest news.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
