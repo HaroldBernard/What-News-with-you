@@ -26,7 +26,11 @@ figure {
     padding-right: 4px;
 }
 .jumbotron {
-    margin: 0px
+    margin: 0px;
+    background-image: url(../img/Sports-PNG-Image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain
 }
 #bodyinput {
     float: left;
