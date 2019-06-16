@@ -33,6 +33,28 @@ $(document).on("click", "#saveArticle", function () {
         console.log(date)
     });
 })
+$(document).on("click", "#deleteArticle", function () {
+    console.log($(this).attr("data-id"))
+
+    var thisId = $(this).attr("data-id")
+
+    $.ajax({
+        method: "DELETE",
+        url: "/articleSaver/" + thisId,
+        data: {
+            // Values taken from the article
+            headline: $(".headline").val(),
+            title: $(".title").val(),
+            summary: $(".summary").val(),
+            link: $(".link").val(),
+            image: $(".imageURL").val()
+        }
+    }).done(function () {
+        windows.location = "/saved"
+        location.reload()
+        console.log(date)
+    });
+})
 
 // Note and its features are built and note modal pops up
 $(document).on("click", "#saveNote", function () {

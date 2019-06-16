@@ -24,6 +24,23 @@ module.exports = function (app) {
         })
     })
 
+        app.delete("/articleSaver/:id", function (req, res) {
+            console.log(req)
+            db.Article.findOne({
+                _id: req.params.id
+            })
+            .then(function (deleter) {
+            db.Saved.deleteOne({deleter})
+                .then(function (result) {
+                    console.log(result)
+                })
+                .catch(function (err) {
+                    // If an error occurred, log it
+                    console.log(err);
+                });
+            })
+        })
+
     app.get('/saved', function (req, res) {
         db.Saved.find({})
         .then(function (dbArticle) {

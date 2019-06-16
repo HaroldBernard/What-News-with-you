@@ -23,6 +23,12 @@ figure {
     padding-right: 5px;
     width: 132px
 }
+#deleteArticle {
+    border-width: medium;
+    padding: 3px;
+    padding-right: 5px;
+    width: 132px
+}
 #viewNote {
     border-radius: 0;
     padding: 3px;
