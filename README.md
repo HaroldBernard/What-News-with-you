@@ -1,5 +1,6 @@
 # Whats-News-with-you
 Web app that lets users view and leave comments on the latest news.
+link to app: https://vast-hamlet-32854.herokuapp.com/
 
 ## Technology stack:
 
